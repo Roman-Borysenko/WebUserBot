@@ -1,0 +1,17 @@
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.exe
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.deps.json
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.runtimeconfig.json
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.runtimeconfig.dev.json
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.dll
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.pdb
+C:\Users\CLEY\source\repos\WebSite\WebSite\obj\Debug\netcoreapp3.1\WebSite.csprojAssemblyReference.cache
+C:\Users\CLEY\source\repos\WebSite\WebSite\obj\Debug\netcoreapp3.1\WebSite.AssemblyInfoInputs.cache
+C:\Users\CLEY\source\repos\WebSite\WebSite\obj\Debug\netcoreapp3.1\WebSite.AssemblyInfo.cs
+C:\Users\CLEY\source\repos\WebSite\WebSite\obj\Debug\netcoreapp3.1\WebSite.dll
+C:\Users\CLEY\source\repos\WebSite\WebSite\obj\Debug\netcoreapp3.1\WebSite.pdb
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.BL.dll
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\WebSite.BL.pdb
+C:\Users\CLEY\source\repos\WebSite\WebSite\obj\Debug\netcoreapp3.1\WebSite.csproj.CopyComplete
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\BrotliSharpLib.dll
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\CLEY\source\repos\WebSite\WebSite\bin\Debug\netcoreapp3.1\Titanium.Web.Proxy.dll

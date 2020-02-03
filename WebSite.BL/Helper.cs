@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Text;
 
 namespace WebSite.BL
@@ -35,6 +36,26 @@ namespace WebSite.BL
                 }
             }
             return listIPAddress;
+        }
+
+        public static bool IsUrl(this string address)
+        {
+            bool isUrl = true;
+            try
+            {
+                var urlArray = address.Split("//")?[1].Trim('/');
+                Ping ping = new Ping();
+                PingReply reply = ping.Send(urlArray);
+
+                if(reply.Status != IPStatus.Success)
+                {
+                    isUrl = false;
+                }
+            } catch(IndexOutOfRangeException ex)
+            {
+                isUrl = false;
+            }
+            return isUrl;
         }
     }
 }

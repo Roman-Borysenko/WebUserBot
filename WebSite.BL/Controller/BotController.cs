@@ -7,9 +7,39 @@ namespace WebSite.BL.Controller
     {
         private const string UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36";
         private const string Referer = "https://www.google.com/";
-        public string Address { get;  set; }
-        public List<string> Proxy { get; set; }
-        public List<string> UserAgents { get; set; }
+        private string address;
+        private List<string> proxy;
+        private List<string> userAgent;
+        private List<string> referer;
+        private int numberThreads;
+        private int timaMin;
+        private int timaMax;
+        private bool followingLinks;
+        private int numbersLink;
+
+
+        public string Address { get { return address; }  
+            set 
+            {
+                if(value.IsUrl())
+                {
+                    address = value;
+                } else
+                {
+                    throw new ArgumentException("The variable is not a URL.", nameof(address));
+                }
+            } 
+        }
+        public List<string> Proxy 
+        {
+            get { return proxy; }
+            set { proxy = value.IsListIPAddress(); }
+        }
+        public List<string> UserAgents 
+        { 
+            get { return userAgent; } 
+            set { userAgent = value.IsStringList(); }
+        }
         public List<string> Referers { get; set; }
         public int NumberThreads { get; set; }
         public int TimeMin { get; set; }

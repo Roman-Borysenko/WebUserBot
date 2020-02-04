@@ -11,7 +11,12 @@ namespace WebSite
     {
         static void Main(string[] args)
         {
-            //var proxy = new List<string>{ "51.158.123.35:8811", "51.158.123.35:8822", "51.158.123.35:8833" };
+            //var proxy = new List<string> { "51.158.123.35:8811", "51.158.123.35:8822", "51.158.123.35:8833" };
+            //var proxy = new List<string> { "     ", "adsadasd", "", "adsasdas" };
+            //if (proxy.IsStringList() == null)
+            //{
+            //    Console.WriteLine("null");
+            //}
             //proxy.IsListIPAddress();
 
             //foreach (var item in proxy)

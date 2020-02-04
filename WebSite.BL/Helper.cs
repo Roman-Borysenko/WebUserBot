@@ -10,7 +10,7 @@ namespace WebSite.BL
     {
         public static List<string> IsListIPAddress(this List<string> listIPAddress)
         {
-            if(listIPAddress != null)
+            if(listIPAddress != null && listIPAddress.Count > 0)
             {
                 for (int i = 0; i < listIPAddress.Count; i++)
                 {
@@ -34,10 +34,13 @@ namespace WebSite.BL
                         listIPAddress.RemoveAt(i);
                     }
                 }
+            } else
+            {
+                listIPAddress = null;
             }
             return listIPAddress;
         }
-
+        
         public static bool IsUrl(this string address)
         {
             bool isUrl = true;
@@ -56,6 +59,24 @@ namespace WebSite.BL
                 isUrl = false;
             }
             return isUrl;
+        }
+
+        public static List<string> IsStringList(this List<string> listString)
+        {
+            if(listString != null && listString.Count > 0)
+            {
+                for (int i = 0; i < listString.Count; i++)
+                {
+                    if(string.IsNullOrWhiteSpace(listString[i]))
+                    {
+                        listString.RemoveAt(i);
+                    }
+                }
+            } else
+            {
+                listString = null;
+            }
+            return listString;
         }
     }
 }

@@ -40,7 +40,11 @@ namespace WebSite.BL.Controller
             get { return userAgent; } 
             set { userAgent = value.IsStringList(); }
         }
-        public List<string> Referers { get; set; }
+        public List<string> Referers 
+        { 
+            get { return referer; } 
+            set { referer = value.IsListUrl(); }
+        }
         public int NumberThreads { get; set; }
         public int TimeMin { get; set; }
         public int TimeMax { get; set; }

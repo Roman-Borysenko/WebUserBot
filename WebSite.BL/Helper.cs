@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Text;
 
 namespace WebSite.BL
@@ -54,7 +55,7 @@ namespace WebSite.BL
                 {
                     isUrl = false;
                 }
-            } catch(IndexOutOfRangeException ex)
+            } catch(Exception ex)
             {
                 isUrl = false;
             }
@@ -77,6 +78,25 @@ namespace WebSite.BL
                 listString = null;
             }
             return listString;
+        }
+
+        public static List<string> IsListUrl(this List<string> listUrl)
+        {
+            if(listUrl != null && listUrl.Count > 0) 
+            {
+                for (int i = 0; i < listUrl.Count; i++)
+                {
+                    if (!listUrl[i].IsUrl())
+                    {
+                        listUrl.RemoveAt(i);
+                    }
+                }
+            } else
+            {
+                listUrl = null;
+            }
+
+            return listUrl;
         }
     }
 }

@@ -5,13 +5,14 @@ C:\Users\CLEY\source\repos\WebSite\UserBot\bin\Debug\netcoreapp3.1\UserBot.runti
 C:\Users\CLEY\source\repos\WebSite\UserBot\bin\Debug\netcoreapp3.1\UserBot.dll
 C:\Users\CLEY\source\repos\WebSite\UserBot\bin\Debug\netcoreapp3.1\UserBot.pdb
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot.csprojAssemblyReference.cache
-C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\MainWindow.g.cs
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\App.g.cs
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot_MarkupCompile.cache
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot_MarkupCompile.lref
-C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\MainWindow.baml
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot.g.resources
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot.AssemblyInfoInputs.cache
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot.AssemblyInfo.cs
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot.dll
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot.pdb
+C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\Views\MainWindow.g.cs
+C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\Views\MainWindow.baml
+C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs

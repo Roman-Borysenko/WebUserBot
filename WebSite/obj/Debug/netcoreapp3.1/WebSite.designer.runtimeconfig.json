@@ -7,7 +7,8 @@
     },
     "additionalProbingPaths": [
       "C:\\Users\\CLEY\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\CLEY\\.nuget\\packages"
+      "C:\\Users\\CLEY\\.nuget\\packages",
+      "C:\\Microsoft\\Xamarin\\NuGet"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

@@ -12,10 +12,9 @@ namespace WebSite.BL.Controller
         private List<string> userAgent;
         private List<string> referer;
         private int numberThreads;
-        private int timaMin;
-        private int timaMax;
+        private int timeMin;
+        private int timeMax;
         private bool followingLinks;
-        private int numbersLink;
 
 
         public string Address { get { return address; }  
@@ -45,11 +44,43 @@ namespace WebSite.BL.Controller
             get { return referer; } 
             set { referer = value.IsListUrl(); }
         }
-        public int NumberThreads { get; set; }
-        public int TimeMin { get; set; }
-        public int TimeMax { get; set; }
+        public int NumberThreads 
+        {
+            get { return numberThreads; } 
+            set 
+            {
+                if (value < 1 || value > 10000)
+                {
+                    throw new ArgumentOutOfRangeException("The argument does not match a range of 1 to 10,000.", nameof(numberThreads));
+                }
+                numberThreads = value;
+            }
+        }
+        public int TimeMin
+        {
+            get { return timeMin; }
+            set
+            {
+                if (value < 1 || value > 300)
+                {
+                    throw new ArgumentOutOfRangeException("The argument does not match a range of 1 to 300.", nameof(timeMin));
+                }
+                timeMin = value;
+            }
+        }
+        public int TimeMax
+        {
+            get { return timeMax; }
+            set
+            {
+                if (value < 1 || value > 300 || value > TimeMax)
+                {
+                    throw new ArgumentOutOfRangeException("The argument does not match a range of 1 to 300.", nameof(timeMax));
+                }
+                timeMax = value;
+            }
+        }
         public bool FollowingLinks { get; set; }
-        public int NumberLinks { get; set; }
 
         public BotController(string address, List<string> proxy, List<string> userAgents, List<string> referers, int timeMin, int timeMax, bool followingLinks)
         {
@@ -63,7 +94,7 @@ namespace WebSite.BL.Controller
         }
         public void Bot()
         {
-            
+            var bot = new Web();
         }
     }
 }

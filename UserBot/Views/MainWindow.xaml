@@ -6,18 +6,93 @@
         xmlns:local="clr-namespace:UserBot"
         xmlns:viewmodels="clr-namespace:UserBot.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="UserBot" Height="418" Width="550" ResizeMode="NoResize" Background="#000" Visibility="Visible" Icon="C:\Users\CLEY\source\repos\WebSite\UserBot\user-bot.png">
     <Window.DataContext>
         <viewmodels:MainViewModel></viewmodels:MainViewModel>
     </Window.DataContext>
-    
-    <Grid>
-        <TabControl Background="AliceBlue">
+
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border  Name="Border" Margin="0,0,-4,0" BorderThickness="1,1,1,1" CornerRadius="0,0,0,0" >
+                                <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center" ContentSource="Header" Margin="12,2,12,2" RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100" />
+                                <Setter TargetName="Border" Property="Background" Value="#414141" />
+                                <Setter Property="Foreground" Value="#DBDADA" />
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter TargetName="Border" Property="Background" Value="#2B2B2B" />
+                                <Setter Property="Foreground" Value="AliceBlue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="Block">
+            <Setter Property="Control.Margin" Value="0 0 0 5"></Setter>
+        </Style>
+
+        <Style x:Key="HeaderListBox">
+            <Setter Property="Control.Background" Value="#C6DDE7"></Setter>
+            <Setter Property="Control.Margin" Value="0 0 0 1"></Setter>
+        </Style>
+        <Style x:Key="HeaderTextListBox">
+            <Setter Property="Control.Foreground" Value="#000000"></Setter>
+            <Setter Property="Control.VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Control.Margin" Value="4 0 0 0"></Setter>
+        </Style>
+        <Style x:Key="HeaderButtonListBox">
+            <Setter Property="Control.Height" Value="25"></Setter>
+            <Setter Property="Control.Background" Value="#4E4E4E"></Setter>
+            <Setter Property="Control.Foreground" Value="#919191"></Setter>
+            <Setter Property="Control.FontSize" Value="14"></Setter>
+            <Setter Property="Control.BorderThickness" Value="0"></Setter>
+            <Setter Property="Control.Margin" Value="1 0 0 0"></Setter>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="Control.Height" Value="110"></Setter>
+            <Setter Property="Control.Background" Value="#C6DDE7"></Setter>
+            <Setter Property="Control.FontSize" Value="11"></Setter>
+            <Setter Property="Control.BorderThickness" Value="0"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Control.Background" Value="#C6DDE7"></Setter>
+            <Setter Property="Control.BorderThickness" Value="0.5"></Setter>
+            <Setter Property="Control.BorderBrush" Value="#ACBEC7"></Setter>
+            <Setter Property="Control.Height" Value="20"></Setter>
+            <Setter Property="Control.FontSize" Value="12"></Setter>
+            <Setter Property="Control.Padding" Value="3 0 3 0"></Setter>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Control.Foreground" Value="#919191"></Setter>
+            <Setter Property="Control.Margin" Value="0 0 10 0"></Setter>
+        </Style>
+
+        <Style x:Key="ButtonControl">
+            <Setter Property="Control.Background" Value="#4E4E4E"></Setter>
+            <Setter Property="Control.Foreground" Value="#919191"></Setter>
+            <Setter Property="Control.Margin" Value="0 10 0 0"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#232323">
+        <TabControl Background="#2E2E2E" BorderThickness="0">
             <TabItem>
                 <TabItem.Header>Управление</TabItem.Header>
                 <TabItem.Content>
-                    <StackPanel>
-                        <Grid ShowGridLines="True">
+                    <StackPanel Margin="15">
+                        <Grid Margin="0 0 0 15">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
@@ -29,17 +104,17 @@
 
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="0.6*"/>
+                                <ColumnDefinition Width="0.8*"/>
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0">
+                            <Grid Grid.Column="0" Margin="0 0 10 0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <StackPanel Grid.Row="0">
-                                    <Grid>
+                                    <Grid Style="{StaticResource Block}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition />
@@ -48,7 +123,7 @@
                                         <TextBlock Grid.Column="0">Потоков</TextBlock>
                                         <TextBox Grid.Column="1"></TextBox>
                                     </Grid>
-                                    <Grid>
+                                    <Grid Style="{StaticResource Block}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition />
@@ -57,7 +132,7 @@
                                         <TextBlock Grid.Column="0">Таймаут(мин)</TextBlock>
                                         <TextBox Grid.Column="1"></TextBox>
                                     </Grid>
-                                    <Grid>
+                                    <Grid Style="{StaticResource Block}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition />
@@ -67,7 +142,7 @@
                                         <TextBox Grid.Column="1"></TextBox>
                                     </Grid>
 
-                                    <Grid>
+                                    <Grid Style="{StaticResource Block}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition  Width="Auto"/>
                                             <ColumnDefinition />
@@ -78,18 +153,18 @@
                                     </Grid>
 
                                     <StackPanel>
-                                        <Grid>
+                                        <Grid Style="{StaticResource HeaderListBox}">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="6*"/>
-                                                <ColumnDefinition/>
-                                                <ColumnDefinition/>
+                                                <ColumnDefinition Width="1*"/>
+                                                <ColumnDefinition Width="25"/>
+                                                <ColumnDefinition Width="25"/>
                                             </Grid.ColumnDefinitions>
 
-                                            <TextBlock Grid.Column="0">Proxy</TextBlock>
-                                            <Button Grid.Column="1">+</Button>
-                                            <Button Grid.Column="2">-</Button>
+                                            <TextBlock Style="{StaticResource HeaderTextListBox}" Grid.Column="0">Proxy</TextBlock>
+                                            <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1">+</Button>
+                                            <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="2">-</Button>
                                         </Grid>
-                                        <ListBox ItemsSource="{Binding Path=Proxy}" Height="100"></ListBox>
+                                        <ListBox ItemsSource="{Binding Path=Proxy}"></ListBox>
                                     </StackPanel>
                                 </StackPanel>
 
@@ -98,45 +173,52 @@
                                         <ColumnDefinition />
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <Button Grid.Column="0">Старт</Button>
-                                    <Button Grid.Column="1">Стоп</Button>
+                                    <Button Style="{StaticResource ButtonControl}" Margin="0 10 2 0" Grid.Column="0">Старт</Button>
+                                    <Button Style="{StaticResource ButtonControl}" Margin="2 10 0 0" Grid.Column="1">Стоп</Button>
                                 </Grid>
                             </Grid>
 
                             <StackPanel Grid.Column="1">
-                                <StackPanel>
-                                    <Grid>
+                                <StackPanel Margin="0 0 0 15">
+                                    <Grid Style="{StaticResource HeaderListBox}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="6*"/>
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
 
-                                        <TextBlock Grid.Column="0">User Agent</TextBlock>
-                                        <Button Grid.Column="1">+</Button>
-                                        <Button Grid.Column="2">-</Button>
+                                        <TextBlock Style="{StaticResource HeaderTextListBox}" Grid.Column="0">User Agent</TextBlock>
+                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1">+</Button>
+                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="2">-</Button>
                                     </Grid>
-                                    <ListBox ItemsSource="{Binding Path=UserAgents}" Height="100"></ListBox>
+                                    <ListBox ItemsSource="{Binding Path=UserAgents}"></ListBox>
                                 </StackPanel>
 
                                 <StackPanel>
-                                    <Grid>
+                                    <Grid Style="{StaticResource HeaderListBox}">
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="6*"/>
                                             <ColumnDefinition/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
 
-                                        <TextBlock Grid.Column="0">Referer</TextBlock>
-                                        <Button Grid.Column="1">+</Button>
-                                        <Button Grid.Column="2">-</Button>
+                                        <TextBlock Style="{StaticResource HeaderTextListBox}" Grid.Column="0">Referer</TextBlock>
+                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1">+</Button>
+                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="2">-</Button>
                                     </Grid>
-                                    <ListBox ItemsSource="{Binding Path=Referers}" Height="100"></ListBox>
+                                    <ListBox ItemsSource="{Binding Path=Referers}"></ListBox>
                                 </StackPanel>
                             </StackPanel>
-                        </Grid>                        
+                        </Grid>
                     </StackPanel>
-                    
+
+                </TabItem.Content>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>Статус</TabItem.Header>
+                <TabItem.Content>
+                    <StackPanel></StackPanel>
                 </TabItem.Content>
             </TabItem>
         </TabControl>

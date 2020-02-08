@@ -15,7 +15,7 @@ namespace UserBot.ViewModels
         public MainViewModel()
         {
             // TODO: added list useragents
-            UserAgents = new ObservableCollection<string> { "qweqwe", "asdasd", "asdasdsa" };
+            UserAgents = new ObservableCollection<string> { "qweqwe", "asdasd", "asdasdsa", "asdasdsa", "asdasdsa", "asdasdsa", "asdasdsa" };
             Referers = new ObservableCollection<string> { "123123", "123123", "1231233" };
             Proxy = new ObservableCollection<string> { "123123", "123123", "1231233" };
         }

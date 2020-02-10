@@ -16,3 +16,4 @@ C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\UserBot.pdb
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\Views\MainWindow.g.cs
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\Views\MainWindow.baml
 C:\Users\CLEY\source\repos\WebSite\UserBot\obj\Debug\netcoreapp3.1\GeneratedInternalTypeHelper.g.cs
+C:\Users\CLEY\source\repos\WebSite\UserBot\bin\Debug\netcoreapp3.1\UserBot.dll.config

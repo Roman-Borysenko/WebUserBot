@@ -55,7 +55,7 @@ namespace WebSite.BL
                 {
                     isUrl = false;
                 }
-            } catch(Exception ex)
+            } catch
             {
                 isUrl = false;
             }

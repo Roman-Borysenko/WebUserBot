@@ -2,22 +2,32 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using UserBot.Models;
 
 namespace UserBot.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        public ObservableCollection<string> UserAgents { get; set; }
-        public ObservableCollection<string> Referers { get; set; }
-        public ObservableCollection<string> Proxy { get; set; }
+        private Bot botUser;
+        public Bot BotUser
+        {
+            get 
+            {
+                return botUser;
+            }
+            set 
+            {
+                botUser = value;
+            }
+        }
         public MainViewModel()
         {
-            // TODO: added list useragents
-            UserAgents = new ObservableCollection<string> { "qweqwe", "asdasd", "asdasdsa", "asdasdsa", "asdasdsa", "asdasdsa", "asdasdsa" };
-            Referers = new ObservableCollection<string> { "123123", "123123", "1231233" };
-            Proxy = new ObservableCollection<string> { "123123", "123123", "1231233" };
+            //BotUser = new Bot(ConfigurationManager.AppSettings["Address"]);
+            BotUser = new Bot(ConfigurationManager.AppSettings["Address"], null, new ObservableCollection<string> { ConfigurationManager.AppSettings["UserAgent"] }, new ObservableCollection<string> { ConfigurationManager.AppSettings["Referer"] }, int.Parse(ConfigurationManager.AppSettings["NumberThreads"]), int.Parse(ConfigurationManager.AppSettings["TimeMin"]), int.Parse(ConfigurationManager.AppSettings["TimeMax"]), bool.Parse(ConfigurationManager.AppSettings["FollowingLinks"]));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

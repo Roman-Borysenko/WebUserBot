@@ -1,8 +1,0 @@
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\bin\Debug\netcoreapp3.1\WebSite.BL.deps.json
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\bin\Debug\netcoreapp3.1\WebSite.BL.dll
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\bin\Debug\netcoreapp3.1\WebSite.BL.pdb
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\obj\Debug\netcoreapp3.1\WebSite.BL.csprojAssemblyReference.cache
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\obj\Debug\netcoreapp3.1\WebSite.BL.AssemblyInfoInputs.cache
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\obj\Debug\netcoreapp3.1\WebSite.BL.AssemblyInfo.cs
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\obj\Debug\netcoreapp3.1\WebSite.BL.dll
-C:\Users\CLEY\source\repos\WebSite\WebSite.BL\obj\Debug\netcoreapp3.1\WebSite.BL.pdb

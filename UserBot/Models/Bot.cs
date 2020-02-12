@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace UserBot.Models
 {
-    public class Bot
+    public class Bot : INotifyPropertyChanged
     {
         private string address;
         private ObservableCollection<string> proxy;
@@ -14,6 +16,7 @@ namespace UserBot.Models
         private int numberThreads;
         private int timeMin;
         private int timeMax;
+        private bool followingLinks;
 
         public string Address
         {
@@ -23,27 +26,40 @@ namespace UserBot.Models
                 if (value.IsUrl())
                 {
                     address = value;
+                    OnPropertyChanged("Address");
                 }
                 else
                 {
-                    throw new ArgumentException("The variable is not a URL.", nameof(address));
+                    throw new Exception("The variable is not a URL.");
                 }
             }
         }
         public ObservableCollection<string> Proxy
         {
             get { return proxy; }
-            set { proxy = value.IsListIPAddress(); }
+            set 
+            { 
+                proxy = value.IsListIPAddress();
+                OnPropertyChanged("Proxy");
+            }
         }
         public ObservableCollection<string> UserAgents
         {
             get { return userAgent; }
-            set { userAgent = value.IsStringList(); }
+            set 
+            { 
+                userAgent = value.IsStringList();
+                OnPropertyChanged("UserAgents");
+            }
         }
         public ObservableCollection<string> Referers
         {
             get { return referer; }
-            set { referer = value.IsListUrl(); }
+            set 
+            { 
+                referer = value.IsListUrl();
+                OnPropertyChanged("Referers");
+            }
         }
         public int NumberThreads
         {
@@ -52,9 +68,10 @@ namespace UserBot.Models
             {
                 if (value < 1 || value > 10000)
                 {
-                    throw new ArgumentOutOfRangeException("The argument does not match a range of 1 to 10,000.", nameof(numberThreads));
+                    throw new Exception("The argument does not match a range of 1 to 10,000.");
                 }
                 numberThreads = value;
+                OnPropertyChanged("NumberThreads");
             }
         }
         public int TimeMin
@@ -64,9 +81,10 @@ namespace UserBot.Models
             {
                 if (value < 1 || value > 300)
                 {
-                    throw new ArgumentOutOfRangeException("The argument does not match a range of 1 to 300.", nameof(timeMin));
+                    throw new Exception("The argument does not match a range of 1 to 300.");
                 }
                 timeMin = value;
+                OnPropertyChanged("TimeMin");
             }
         }
         public int TimeMax
@@ -79,9 +97,18 @@ namespace UserBot.Models
                     throw new Exception("The argument does not match a range of 1 to 300.");
                 }
                 timeMax = value;
+                OnPropertyChanged("TimeMax");
             }
         }
-        public bool FollowingLinks { get; set; }
+        public bool FollowingLinks 
+        {
+            get { return followingLinks; }
+            set 
+            {
+                followingLinks = value;
+                OnPropertyChanged("FollowingLinks");
+            } 
+        }
 
         public Bot(string address)
         {
@@ -97,6 +124,12 @@ namespace UserBot.Models
             TimeMin = timeMin;
             TimeMax = timeMax;
             FollowingLinks = followingLinks;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

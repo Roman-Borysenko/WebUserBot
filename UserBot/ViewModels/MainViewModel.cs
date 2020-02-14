@@ -14,16 +14,18 @@ namespace UserBot.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private Bot userBot;
+        private Bot botUser;
         public CommandController StartCommand { get; set; }
+        public CommandController OpenFileCommand { get; set; }
 
+        IFileService File;
         IDialogService dialogService;
 
         public Bot BotUser {
-            get { return userBot; }
+            get { return botUser; }
             set
             {
-                userBot = value;
+                botUser = value;
                 OnPropertyChanged("BotUser");
             } 
         }
@@ -34,19 +36,35 @@ namespace UserBot.ViewModels
             BotUser.ErrorEvent += ShowError;
 
             StartCommand = new CommandController(StartBot);
+            OpenFileCommand = new CommandController(OpenFile);
+            File = new FileController();
+
             dialogService = new DefaultDialogController();
         }
 
         public void StartBot(object obj)
         {
+            // TODO: process start button press
             BotUser.NumberThreads = 5;
             BotUser.Address = "https://www.youtube.com/";
-            //dialogService.ShowMessage(BotUser.NumberThreads + " " + BotUser.Address);
+        }
+
+        public void OpenFile(object obj)
+        {
+            dialogService.OpenFile();
+            var collection = File.Open(dialogService.FilePath);
+
+            switch(obj as string)
+            {
+                case "UserAgent": botUser.UserAgents = collection; break;
+                case "Referer": botUser.Referers = collection; break;
+                case "Proxy": botUser.Proxy = collection; break;
+            }
         }
 
         public void ShowError(string error)
         {
-            dialogService.ShowMessage(error);
+            dialogService.ShowMessageError(error);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -161,7 +161,7 @@
                                             </Grid.ColumnDefinitions>
 
                                             <TextBlock Style="{StaticResource HeaderTextListBox}" Grid.Column="0">Proxy</TextBlock>
-                                            <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1">+</Button>
+                                            <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1" Command="{Binding Path=OpenFileCommand}" CommandParameter="Proxy">+</Button>
                                             <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="2">-</Button>
                                         </Grid>
                                         <ListBox ItemsSource="{Binding Path=BotUser.Proxy}"></ListBox>
@@ -188,7 +188,7 @@
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Style="{StaticResource HeaderTextListBox}" Grid.Column="0">User Agent</TextBlock>
-                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1">+</Button>
+                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1" Command="{Binding Path=OpenFileCommand}" CommandParameter="UserAgent">+</Button>
                                         <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="2">-</Button>
                                     </Grid>
                                     <ListBox ItemsSource="{Binding Path=BotUser.UserAgents}"></ListBox>
@@ -203,7 +203,7 @@
                                         </Grid.ColumnDefinitions>
 
                                         <TextBlock Style="{StaticResource HeaderTextListBox}" Grid.Column="0">Referer</TextBlock>
-                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1">+</Button>
+                                        <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="1" Command="{Binding Path=OpenFileCommand}" CommandParameter="Referer">+</Button>
                                         <Button Style="{StaticResource HeaderButtonListBox}" Grid.Column="2">-</Button>
                                     </Grid>
                                     <ListBox ItemsSource="{Binding Path=BotUser.Referers}"></ListBox>

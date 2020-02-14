@@ -9,6 +9,6 @@ namespace UserBot.Services
         string FilePath { get; set; }
         bool OpenFile();
         bool SaveFile();
-        void ShowMessage(string message);
+        void ShowMessageError(string message);
     }
 }

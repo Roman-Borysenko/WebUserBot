@@ -33,9 +33,9 @@ namespace UserBot.Controllers
             return false;
         }
 
-        public void ShowMessage(string message)
+        public void ShowMessageError(string message)
         {
-            MessageBox.Show(message);
+            MessageBox.Show(message, "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

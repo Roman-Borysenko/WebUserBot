@@ -31,17 +31,22 @@ namespace UserBot.ViewModels
         {
             //BotUser = new Bot(ConfigurationManager.AppSettings["Address"]);
             BotUser = new Bot(ConfigurationManager.AppSettings["Address"], null, new ObservableCollection<string> { ConfigurationManager.AppSettings["UserAgent"] }, new ObservableCollection<string> { ConfigurationManager.AppSettings["Referer"] }, int.Parse(ConfigurationManager.AppSettings["NumberThreads"]), int.Parse(ConfigurationManager.AppSettings["TimeMin"]), int.Parse(ConfigurationManager.AppSettings["TimeMax"]), bool.Parse(ConfigurationManager.AppSettings["FollowingLinks"]));
+            BotUser.ErrorEvent += ShowError;
+
             StartCommand = new CommandController(StartBot);
             dialogService = new DefaultDialogController();
         }
 
         public void StartBot(object obj)
         {
-            //BotUser.NumberThreads = 5;
-            //BotUser.Address = "https://www.youtube.com/";
-            //BotUser.TimeMin = 10;
-            //BotUser.TimeMax = 20;
-            dialogService.ShowMessage(BotUser.NumberThreads + " " + BotUser.Address);
+            BotUser.NumberThreads = 5;
+            BotUser.Address = "https://www.youtube.com/";
+            //dialogService.ShowMessage(BotUser.NumberThreads + " " + BotUser.Address);
+        }
+
+        public void ShowError(string error)
+        {
+            dialogService.ShowMessage(error);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -18,6 +18,8 @@ namespace UserBot.Models
         private int timeMax;
         private bool followingLinks;
 
+        public event Action<string> ErrorEvent;
+
         public string Address
         {
             get { return address; }
@@ -30,7 +32,7 @@ namespace UserBot.Models
                 }
                 else
                 {
-                    throw new Exception("The variable is not a URL.");
+                    ErrorEvent("The variable is not a URL.");
                 }
             }
         }
@@ -68,7 +70,7 @@ namespace UserBot.Models
             {
                 if (value < 1 || value > 10000)
                 {
-                    throw new Exception("The argument does not match a range of 1 to 10,000.");
+                    ErrorEvent("The argument does not match a range of 1 to 10, 000.");
                 }
                 numberThreads = value;
                 OnPropertyChanged("NumberThreads");
@@ -81,7 +83,7 @@ namespace UserBot.Models
             {
                 if (value < 1 || value > 300)
                 {
-                    throw new Exception("The argument does not match a range of 1 to 300.");
+                    ErrorEvent("The argument does not match a range of 1 to 300.");
                 }
                 timeMin = value;
                 OnPropertyChanged("TimeMin");
@@ -94,7 +96,7 @@ namespace UserBot.Models
             {
                 if (value < 1 || value > 300 || value < TimeMin)
                 {
-                    throw new Exception("The argument does not match a range of 1 to 300.");
+                    ErrorEvent("The argument does not match a range of 1 to 300.");
                 }
                 timeMax = value;
                 OnPropertyChanged("TimeMax");

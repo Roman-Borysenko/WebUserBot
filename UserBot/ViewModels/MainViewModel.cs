@@ -44,9 +44,7 @@ namespace UserBot.ViewModels
 
         public void StartBot(object obj)
         {
-            // TODO: process start button press
-            BotUser.NumberThreads = 5;
-            BotUser.Address = "https://www.youtube.com/";
+            BotUser.StartDoss();
         }
 
         public void OpenFile(object obj)

